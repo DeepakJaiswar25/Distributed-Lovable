@@ -1,0 +1,2 @@
+com.deepak.distributed_lovable.common_lib.security.SharedSecurityAutoConfiguration
+com.deepak.distributed_lovable.common_lib.error.SharedExceptionAutoConfiguration
