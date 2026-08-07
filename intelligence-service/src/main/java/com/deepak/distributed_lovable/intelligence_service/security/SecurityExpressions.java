@@ -1,0 +1,52 @@
+package com.deepak.distributed_lovable.intelligence_service.security;
+
+import com.deepak.distributed_lovable.common_lib.enums.ProjectPermissions;
+import com.deepak.distributed_lovable.common_lib.enums.ProjectPermissions.*;
+import com.deepak.distributed_lovable.common_lib.security.AuthUtil;
+import com.deepak.distributed_lovable.intelligence_service.client.WorkspaceClient;
+import feign.FeignException;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.CredentialsExpiredException;
+import org.springframework.stereotype.Component;
+
+@Component("security")
+@RequiredArgsConstructor
+@Slf4j
+public class SecurityExpressions {
+
+    private final AuthUtil authUtil;
+    private final WorkspaceClient workspaceClient;
+
+    private boolean hasPermission(Long projectId, ProjectPermissions projectPermission) {
+        try {
+            return workspaceClient.checkPermission(projectId, projectPermission);
+        } catch (FeignException.Unauthorized e) {
+            log.warn("Token expired or invalid during permission check for project: {}", projectId);
+            throw new CredentialsExpiredException("JWT token is expired or invalid");
+        } catch (FeignException e) {
+            log.error("Workspace-service failed during permission check: {}", e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean canViewProject(Long projectId) {
+        return hasPermission(projectId, ProjectPermissions.VIEW);
+    }
+
+    public boolean canEditProject(Long projectId) {
+        return hasPermission(projectId, ProjectPermissions.EDIT);
+    }
+
+    public boolean canDeleteProject(Long projectId) {
+        return hasPermission(projectId, ProjectPermissions.DELETE);
+    }
+
+    public boolean canViewMembers(Long projectId) {
+        return hasPermission(projectId, ProjectPermissions.VIEW_MEMBERS);
+    }
+
+    public boolean canManageMembers(Long projectId) {
+        return hasPermission(projectId, ProjectPermissions.MANAGE_MEMBERS);
+    }
+}

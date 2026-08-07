@@ -37,7 +37,7 @@ public class AccountSecurityConfig {
                 .cors(Customizer.withDefaults())
                 .sessionManagement((sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS)))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/webhooks/payments/**").permitAll()
+                        .requestMatchers("/auth/**", "/webhooks/payments/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandlingConfigurer ->

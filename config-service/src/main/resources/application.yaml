@@ -1,3 +1,15 @@
 spring:
   application:
     name: config-service
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/DeepakJaiswar25/Distributed-Lovable-Config-Server
+          username: deepakjaiswar25
+          password: ${GITHUB_TOKEN}
+          default-label: main
+server:
+  port: 8888
+debug: true
