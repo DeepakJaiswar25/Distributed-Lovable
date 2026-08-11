@@ -1,6 +1,7 @@
 package com.deepak.distributed_lovable.intelligence_service.entity;
 
 
+import com.deepak.distributed_lovable.common_lib.enums.ChatEventStatus;
 import com.deepak.distributed_lovable.common_lib.enums.ChatEventType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -38,4 +39,11 @@ public class ChatEvent {
 
     @Column(columnDefinition = "text")
     String metadata;
+
+    String sagaId;
+
+    @Enumerated(EnumType.STRING)
+    ChatEventStatus status;
+
+
 }
