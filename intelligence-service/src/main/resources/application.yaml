@@ -3,11 +3,5 @@ spring:
     name: intelligence-service
 
   config:
-    import: configserver:http://localhost:8888
-logging:
-  level:
-    feign: DEBUG
-    org.springframework.cloud.openfeign: DEBUG
-    com.deepak.distributed_lovable.intelligence_service.client: DEBUG
+    import: configserver:${CONFIG_SERVER_URI:http://localhost:8888}
 
-debug: true

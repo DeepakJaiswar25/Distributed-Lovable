@@ -10,7 +10,7 @@
         <module name="discovery-service" />
         <module name="config-service" />
       </profile>
-      <profile name="Annotation profile for common-lib" enabled="true">
+      <profile name="Annotation profile for api-gateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,6 +18,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
+        <module name="api-gateway" />
         <module name="common-lib" />
       </profile>
       <profile name="Annotation profile for account-service" enabled="true">
@@ -31,7 +32,7 @@
         </processorPath>
         <module name="account-service" />
       </profile>
-      <profile name="Annotation profile for workspace-service" enabled="true">
+      <profile name="Annotation profile for intelligence-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -41,15 +42,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
         </processorPath>
         <module name="workspace-service" />
-      </profile>
-      <profile name="Annotation profile for intelligence-service" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-        </processorPath>
-        <module name="api-gateway" />
         <module name="intelligence-service" />
       </profile>
     </annotationProcessing>

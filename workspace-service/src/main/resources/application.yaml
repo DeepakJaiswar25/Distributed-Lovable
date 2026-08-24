@@ -3,5 +3,5 @@ spring:
     name: workspace-service
 
   config:
-    import: configserver:http://localhost:8888
-debug: true
+    import: configserver:${CONFIG_SERVER_URI:http://localhost:8888}
+

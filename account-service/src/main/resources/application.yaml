@@ -3,4 +3,4 @@ spring:
     name: account-service
 
   config:
-    import: configserver:http://localhost:8888
+    import: configserver:${CONFIG_SERVER_URI:http://localhost:8888}
