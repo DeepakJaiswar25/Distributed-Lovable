@@ -23,6 +23,7 @@ management:
       enabled: false
 
 ---
+
 spring:
   config:
     activate:
