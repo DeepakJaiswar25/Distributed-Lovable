@@ -17,8 +17,9 @@ public class CorsConfig {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.setAllowedOrigins(Arrays.asList(
-
-                "http://localhost:5173"
+                "http://localhost:5173",
+                "http://promptforge.deepakjaiswar.dev",
+                "https://promptforge.deepakjaiswar.dev"
         ));
         corsConfig.setMaxAge(3600L);
         corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
