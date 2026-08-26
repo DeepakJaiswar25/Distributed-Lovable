@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: promptforge-staging-cert
+  namespace: lovable-core
+spec:
+  secretName: promptforge-staging-tls
+  issuerRef:
+    name: letsencrypt-namecom-staging
+    kind: ClusterIssuer
+  dnsNames:
+    - promptforge.deepakjaiswar.dev
+    - api.promptforge.deepakjaiswar.dev
+    - "*.previews.promptforge.deepakjaiswar.dev"
