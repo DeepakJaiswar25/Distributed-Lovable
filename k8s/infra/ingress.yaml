@@ -7,9 +7,17 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 
 spec:
   ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - "promptforge.deepakjaiswar.dev"
+        - "api.promptforge.deepakjaiswar.dev"
+        - "*.previews.promptforge.deepakjaiswar.dev"
+      secretName: promptforge-tls
 
   rules:
     # PromptForge Frontend

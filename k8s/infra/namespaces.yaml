@@ -20,4 +20,5 @@ data:
   PREVIEW_DOMAIN: "previews.promptforge.deepakjaiswar.dev"
   PREVIEW_NAMESPACE: "lovable-previews"
   PROXY_PORT: "80"
-  FRONTEND_URL: "http://promptforge.deepakjaiswar.dev"
+  FRONTEND_URL: "https://promptforge.deepakjaiswar.dev"
+  APP_FRONTEND_URL: "https://promptforge.deepakjaiswar.dev"

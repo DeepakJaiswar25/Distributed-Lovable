@@ -88,8 +88,8 @@ public class KubernetesDeploymentService implements DeploymentService {
 
         registerRoute(domain, pod);
 
-        log.info("Deployment successful: http://{}:{}", domain, proxyPort);
-        return new DeployResponse("http://" + domain + ":" + proxyPort);
+        log.info("Deployment successful: https://{}", domain);
+        return new DeployResponse("https://" + domain);
     }
 
 

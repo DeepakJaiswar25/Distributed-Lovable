@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-namecom-prod
+spec:
+  acme:
+    email: deepakj2597@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-namecom-prod-account-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: acme.name.com
+            solverName: namedotcom
+            config:
+              username: Deepakj25
+              apitokensecret:
+                name: namedotcom-credentials
+                key: api-token
