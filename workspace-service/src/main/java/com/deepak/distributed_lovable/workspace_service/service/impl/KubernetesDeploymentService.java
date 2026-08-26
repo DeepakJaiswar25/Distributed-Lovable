@@ -43,10 +43,12 @@ public class KubernetesDeploymentService implements DeploymentService {
 
         String domain = "project-" + projectId + "." + baseDomain;
         Pod existingPod = findActivePod(projectId);
-        if(existingPod !=null){
+
+        if (existingPod != null) {
             registerRoute(domain, existingPod);
-            return new DeployResponse("http://"+domain+":"+proxyPort);
+            return new DeployResponse("https://" + domain);
         }
+
         return claimAndStartNewPod(projectId, domain);
     }
 
